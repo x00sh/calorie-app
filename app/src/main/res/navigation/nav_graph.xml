@@ -22,9 +22,22 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
+        <argument
+            android:name="mealName"
+            app:argType="string"
+            />
+        <argument
+            android:name="calories"
+            app:argType="integer"
+             />
+
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/FirstFragment"/>
+
+        <action
+            android:id="@+id/action_SecondFragment_to_AddMealFragment"
+            app:destination="@id/AddMealFragment" />
     </fragment>
 
     <activity
@@ -34,6 +47,21 @@
         tools:layout="@layout/activity_main">
     </activity>
 
+
+    <fragment
+        android:id="@+id/AddMealFragment"
+        android:name="uk.ac.westminster.hmmmmmm.AddMealFragment"
+        tools:layout="@layout/fragment_add_meal">
+        <action
+            android:id="@+id/action_AddMealFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <argument
+            android:name="mealName"
+            app:argType="string" />
+        <argument
+            android:name="calories"
+            app:argType="integer" />
+    </fragment>
 
 
 </navigation>
