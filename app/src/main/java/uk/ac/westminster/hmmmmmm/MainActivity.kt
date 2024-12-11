@@ -24,5 +24,11 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             navController.navigate(R.id.FirstFragment)
         }
+
+        val registerButton = findViewById<Button>(R.id.buttonRegister)
+        registerButton.setOnClickListener {
+            navController.navigate(R.id.RegistrationFragment)
+        }
+
     }
 }

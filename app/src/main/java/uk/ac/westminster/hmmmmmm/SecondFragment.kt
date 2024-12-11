@@ -10,12 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import uk.ac.westminster.hmmmmmm.databinding.FragmentSecondBinding
+import androidx.fragment.app.activityViewModels
+
 
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
 
+    private val sharedViewModel: SharedViewModel by activityViewModels()
     private lateinit var viewModel: MealsViewModel // Reference to ViewModel
     private lateinit var adapter: MealsAdapter // Reference to Adapter
 
@@ -32,6 +35,26 @@ class SecondFragment : Fragment() {
 
         // Get ViewModel instance
         viewModel = ViewModelProvider(requireActivity()).get(MealsViewModel::class.java)
+
+        sharedViewModel.name.observe(viewLifecycleOwner, Observer { name ->
+            binding.text1.text = "Name: $name"
+        })
+
+        sharedViewModel.email.observe(viewLifecycleOwner, Observer { email ->
+            binding.text2.text = "Email: $email"
+        })
+
+        sharedViewModel.password.observe(viewLifecycleOwner, Observer { password ->
+            binding.text3.text = "Password: $password"
+        })
+
+        sharedViewModel.age.observe(viewLifecycleOwner, Observer { age ->
+            binding.text4.text = "Age: $age"
+        })
+
+        sharedViewModel.selectedOption.observe(viewLifecycleOwner, Observer { option ->
+            binding.text5.text = "Selected Option: $option"
+        })
 
         // Set up RecyclerView and Adapter
         adapter = MealsAdapter(viewModel.meals.value ?: mutableListOf())

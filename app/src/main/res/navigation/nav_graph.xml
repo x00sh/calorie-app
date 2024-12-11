@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_RegistrationFragment"
+            app:destination="@id/RegistrationFragment" />
     </fragment>
 
     <fragment
@@ -61,6 +64,15 @@
         <argument
             android:name="calories"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegistrationFragment"
+        android:name="uk.ac.westminster.hmmmmmm.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_RegistrationFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
 
 
